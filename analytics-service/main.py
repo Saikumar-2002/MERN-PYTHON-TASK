@@ -17,9 +17,15 @@ app = FastAPI(
 )
 
 # CORS configuration
+origins = [
+    "http://localhost:3000",
+    "https://task-management-frontend.vercel.app", 
+    "*" # For ease of development/testing, but restrict in stricter production
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # In production, specify exact origins
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

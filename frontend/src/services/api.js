@@ -1,15 +1,16 @@
 import axios from 'axios';
 
 // Create axios instances
+// Create axios instances
 const api = axios.create({
-    baseURL: '/api',
+    baseURL: process.env.REACT_APP_API_URL || '/api',
     headers: {
         'Content-Type': 'application/json'
     }
 });
 
 const analyticsApi = axios.create({
-    baseURL: 'http://localhost:8000/api',
+    baseURL: process.env.REACT_APP_ANALYTICS_URL || 'http://localhost:8000/api',
     headers: {
         'Content-Type': 'application/json'
     }
